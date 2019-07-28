@@ -1,0 +1,46 @@
+
+<html>
+
+    <head>
+        <title>
+            Team Peru Noobies
+        </title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrapV4/css/bootstrap.min.css') }}">
+        <script src="{{ url_for('static', filename='vendor/bootstrapV4/js/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='vendor/Argora/AgoraRTCSDK-2.8.0.js') }}"></script>
+        <script src="{{ url_for('static', filename='vendor/JQuery/jquery.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/agoraVideo.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/controller.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/webcam.min.js') }}"></script>
+    </head>
+    <div class="container">
+        <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">UserName</label>
+              <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter your username">
+            </div>
+            <div class="form-group">
+                <a href="javascript:void(take_snapshot())">Take Snapshot</a>
+                <div id="my_camera" style="width:320px; height:240px;"></div>
+            </div>
+        </form>
+    </div>
+<!-- <div id="my_result"></div> -->
+<script language="JavaScript">
+    Webcam.attach( '#my_camera' );
+    var img
+    function take_snapshot() {
+     Webcam.snap( function(data_uri) {
+         img = data_uri
+           // document.getElementById('my_result').innerHTML = '<img src="'+data_uri+'"/>';
+        });
+        console.log(img)
+        username = document.getElementById('username')
+        Webcam.upload( img, '/uploadimage/'+username.value, function(code, text) {
+        console.log('callback'+text);
+        alert(text)
+        if(code === 200)
+            window.location.href="/"
+        });
+    }
+</script>

@@ -108,9 +108,12 @@ function join() {
     document.getElementById("leave").disabled = true;
     document.getElementById("publish").disabled = true;
     document.getElementById("unpublish").disabled = true;
-
+   
     client.leave(function () {
       console.log("Leavel channel successfully");
+      localStream.stop("streamStoped", function() {});
+      localStream.videoSource = null;
+      localStream.audioSource = null;
     }, function (err) {
       console.log("Leave channel failed");
     });
