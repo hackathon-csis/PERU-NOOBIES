@@ -1,0 +1,104 @@
+<html>
+
+<head>
+    <title>
+        Team Peru Noobies
+    </title>
+    <link rel="stylesheet" href="vendor/bootstrapV4/css/bootstrap.min.css">
+    <script src="vendor/bootstrapV4/js/bootstrap.min.js"></script>
+    <script src="vendor/Argora/AgoraRTCSDK-2.8.0.js"></script>
+    <script src="vendor/JQuery/jquery.js"></script>
+    <script src="assets/js/agoraVideo.js"></script>
+    <script src="assets/js/controller.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <a class="navbar-brand" href="#">Team Peru Noobies</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Logout <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 mt-5">
+                <div class="card text-center">
+                    <div class="card-header">Select your A/V Devices</div>
+                    <div class="card-body">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="audioSource">Video Source</label>
+                            </div>
+                            <select class="custom-select" id="videoSource"></select>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="audioSource">Audio Source</label>
+                            </div>
+                            <select class="custom-select" id="audioSource"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 mt-5">
+                <div class="card text-center">
+                    <div class="card-header">Controller</div>
+                    <div class="card-body">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="channel">Room Name</label>
+                            </div>
+                            <input type="text" class="form-control" placeholder="" aria-label="" id="channel" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="checkbox" id ="video" aria-label="Checkbox for following text input">
+                                </div>
+                            </div>
+                            <label class="input-group-text" for="video">Host</label>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-2">
+                                    <button id="join" class="btn btn-primary" onclick="join()">Join</button>
+                                </div>
+                                <div class="col-sm-6 col-md-2">
+                                    <button id="leave" class="btn btn-primary" onclick="leave()" disabled>Leave</button>
+                                </div>
+                                <div class="col-sm-6 col-md-2">
+                                    <button id="publish" class="btn btn-primary" onclick="publish()" disabled>Publish</button>
+                                </div>
+                                <div class="col-sm-6 col-md-2">
+                                    <button id="unpublish" class="btn btn-primary" onclick="unpublish()" disabled>Unpublish</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+                <div id="video" style="margin:0 auto;">
+                        <div id="agora_local" style="float:right;width:210px;height:147px;display:inline-block;"></div>
+                    </div>
+        </div>
+    </div>
+</body>
+
+</html>
